@@ -3,7 +3,7 @@ versioninfo
 	"editorextension" "strata"
 	"editorversion" "400"
 	"editorbuild" "10597"
-	"mapversion" "422"
+	"mapversion" "571"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -12,7 +12,7 @@ visgroups
 }
 viewsettings
 {
-	"bSnapToGrid" "0"
+	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "1"
 	"nGridSpacing" "4"
@@ -23,33 +23,33 @@ viewsettings
 		v0
 		{
 			"3d" "1"
-			"position" "(-46.88 -103.653 -15.6331)"
-			"angle" "[3.19992 62.3992 0]"
+			"position" "(-115.83 -136.512 148.556)"
+			"angle" "[25.6001 49.9989 0]"
 		}
 		v1
 		{
 			"3d" "0"
-			"position" "(55.8727 -4.64263 65536)"
-			"zoom" "3.85174"
+			"position" "(-0.0001297 0 65424)"
+			"zoom" "4.6221"
 		}
 		v2
 		{
 			"3d" "0"
-			"position" "(65536 -1.90735e-06 -5)"
-			"zoom" "1.85752"
+			"position" "(65472 0 -71.9998)"
+			"zoom" "1.03082"
 		}
 		v3
 		{
 			"3d" "0"
-			"position" "(-13.6533 -65536 -5.61723)"
-			"zoom" "7.987"
+			"position" "(14.6448 -65728 14.8652)"
+			"zoom" "1.85751"
 		}
 	}
 }
 world
 {
 	"id" "1"
-	"mapversion" "422"
+	"mapversion" "571"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -79,16 +79,6 @@ world
 	}
 	group
 	{
-		"id" "6004"
-		editor
-		{
-			"color" "108 169 0"
-			"visgroupshown" "1"
-			"visgroupautoshown" "1"
-		}
-	}
-	group
-	{
 		"id" "6011"
 		editor
 		{
@@ -96,6 +86,335 @@ world
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 		}
+	}
+}
+entity
+{
+	"id" "29031"
+	"classname" "comp_entity_finder"
+	"angles" "0 0 0"
+	"kv1_dest" "filtername"
+	"kv1_known" "ml_filter_box2"
+	"kv1_mode" "target2known"
+	"kv1_src" "targetname"
+	"kv2_dest" "filtername"
+	"kv2_known" "ml_box2_is_in_addoutput_f"
+	"kv2_mode" "target2known"
+	"kv2_src" "targetname"
+	"kv3_dest" "filtername"
+	"kv3_known" "ml_box2_is_out_addoutput_f"
+	"kv3_mode" "target2known"
+	"kv3_src" "targetname"
+	"kv4_dest" "!m_box_2"
+	"kv4_known" "ml_dissolve_box_case"
+	"kv4_mode" "replacetarget"
+	"kv5_dest" "template01"
+	"kv5_known" "m_box_ptemp_2"
+	"kv5_mode" "target2known"
+	"kv5_src" "targetname"
+	"kv6_dest" "allowfunnel"
+	"kv6_mode" "const2target"
+	"kv6_src" "0"
+	"kv7_dest" "origin"
+	"kv7_known" "m_box_ptemp_2"
+	"kv7_mode" "known2target"
+	"kv7_src" "origin"
+	"makeunique" "0"
+	"radius" "192"
+	"rotatetarget" "0"
+	"searchfov" "180"
+	"targetcls" "prop_weighted_cube prop_monster_box"
+	"targetname" "<pack_rename>"
+	"teleporttarget" "0"
+	connections
+	{
+		"OnFizzled" "!selfRemoveOutput0-1"
+		"OnUser2" "!selfAddOutputOnFizzled m_box2_autodrop:Test,,0,10-1"
+		"OnUser2" "!selfRemoveOutput0.01-1"
+	}
+	"origin" "0 0 72"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 -14768]"
+	}
+}
+entity
+{
+	"id" "29411"
+	"classname" "logic_relay"
+	"angles" "0 0 0"
+	"startdisabled" "0"
+	"targetname" "ml_box1_is_out_addoutput_rl"
+	connections
+	{
+		"OnTrigger" "ml_box1_is_out_addoutput_fTestActivator0-1"
+	}
+	"origin" "-24 -24 -24"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "29424"
+	"classname" "logic_relay"
+	"angles" "0 0 0"
+	"startdisabled" "0"
+	"targetname" "ml_box2_is_out_addoutput_rl"
+	connections
+	{
+		"OnTrigger" "ml_box2_is_out_addoutput_fTestActivator0-1"
+	}
+	"origin" "-24 -8 -24"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "29994"
+	"classname" "math_counter"
+	"angles" "0 0 0"
+	"max" "4"
+	"min" "0"
+	"startdisabled" "0"
+	"startvalue" "0"
+	"targetname" "ml_general_box_counter"
+	connections
+	{
+		"OutValue" "ml_general_box_counter_caseInValue0-1"
+	}
+	"origin" "0 0 112"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "30014"
+	"classname" "logic_case"
+	"angles" "0 0 0"
+	"case01" "1"
+	"case02" "2"
+	"case03" "3"
+	"case04" "4"
+	"MultipleCasesAllowed" "0"
+	"targetname" "ml_general_box_counter_case"
+	"origin" "0 0 96"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "30042"
+	"classname" "logic_branch"
+	"angles" "0 0 0"
+	"initialvalue" "0"
+	"targetname" "ml_box2_is_doube_drop"
+	connections
+	{
+		"OnFalse" "ml_dissolve_boxSetValue20-1"
+		"OnFalse" "ml_spawn_boxSetValue20-1"
+		"OnTrue" "ml_dissolve_boxSetValue20-1"
+		"OnTrue" "ml_spawn_boxSetValue10-1"
+	}
+	"origin" "-40 8 24"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "30044"
+	"classname" "logic_branch"
+	"angles" "0 0 0"
+	"targetname" "ml_box1_is_doube_drop"
+	connections
+	{
+		"OnTrue" "ml_spawn_boxSetValue20-1"
+		"OnTrue" "ml_dissolve_boxSetValue10-1"
+		"OnFalse" "ml_dissolve_boxSetValue10-1"
+		"OnFalse" "ml_spawn_boxSetValue10-1"
+	}
+	"origin" "-40 -8 24"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "30071"
+	"classname" "logic_relay"
+	"angles" "0 0 0"
+	"startdisabled" "0"
+	"targetname" "ml_box2_is_doube_drop_test_if_in"
+	connections
+	{
+		"OnTrigger" "ml_box2_is_doube_dropTest0-1"
+	}
+	"origin" "-40 -8 64"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
+	"id" "30089"
+	"classname" "logic_relay"
+	"angles" "0 0 0"
+	"startdisabled" "0"
+	"targetname" "ml_box1_is_doube_drop_test_if_in"
+	connections
+	{
+		"OnTrigger" "ml_box1_is_doube_dropTest0-1"
+	}
+	"origin" "-40 -24 64"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
+	"id" "28994"
+	"classname" "comp_entity_finder"
+	"angles" "0 0 0"
+	"kv1_dest" "filtername"
+	"kv1_known" "ml_filter_box1"
+	"kv1_mode" "target2known"
+	"kv1_src" "targetname"
+	"kv2_dest" "filtername"
+	"kv2_known" "ml_box1_is_in_addoutput_f"
+	"kv2_mode" "target2known"
+	"kv2_src" "targetname"
+	"kv3_dest" "filtername"
+	"kv3_known" "ml_box1_is_out_addoutput_f"
+	"kv3_mode" "target2known"
+	"kv3_src" "targetname"
+	"kv4_dest" "!m_box_1"
+	"kv4_known" "ml_dissolve_box_case"
+	"kv4_mode" "replacetarget"
+	"kv5_dest" "template01"
+	"kv5_known" "m_box_ptemp_1"
+	"kv5_mode" "target2known"
+	"kv5_src" "targetname"
+	"kv6_dest" "allowfunnel"
+	"kv6_mode" "const2target"
+	"kv6_src" "0"
+	"kv7_dest" "origin"
+	"kv7_known" "m_box_ptemp_1"
+	"kv7_mode" "known2target"
+	"kv7_src" "origin"
+	"makeunique" "0"
+	"radius" "192"
+	"rotatetarget" "0"
+	"searchfov" "180"
+	"targetcls" "prop_weighted_cube prop_monster_box"
+	"targetname" "<pack_rename>"
+	"teleporttarget" "0"
+	connections
+	{
+		"OnFizzled" "!selfRemoveOutput0-1"
+		"OnUser2" "!selfAddOutputOnFizzled m_box1_autodrop:Test,,0,10-1"
+		"OnUser2" "!selfRemoveOutput0.01-1"
+		"OnUser2" "!selfAddOutputOnFizzled ml_general_box_counter:Subtract,1,0,10-1"
+	}
+	"origin" "0 0 20"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 -14768]"
+	}
+}
+entity
+{
+	"id" "16106"
+	"classname" "filter_activator_name"
+	"angles" "0 0 0"
+	"negated" "0"
+	"PassCallerWhenTested" "0"
+	"targetname" "ml_filter_box2"
+	"origin" "-24 24 96"
+	editor
+	{
+		"color" "0 255 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "16109"
+	"classname" "filter_activator_name"
+	"angles" "0 0 0"
+	"negated" "0"
+	"PassCallerWhenTested" "0"
+	"targetname" "ml_filter_box1"
+	"origin" "-24 8 96"
+	editor
+	{
+		"color" "0 255 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "16112"
+	"classname" "filter_multi"
+	"angles" "0 0 0"
+	"filter01" "ml_filter_box1"
+	"filter02" "ml_filter_box2"
+	"filtertype" "1"
+	"negated" "0"
+	"PassCallerWhenTested" "0"
+	"targetname" "ml_filter"
+	"origin" "-24 16 112"
+	editor
+	{
+		"color" "0 255 0"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
 	}
 }
 entity
@@ -108,8 +427,9 @@ entity
 	connections
 	{
 		"OnTrue" "ml_box_managerSetStateBTrue0-1"
+		"OnTrue" "ml_box_in_dispensor_counter_trigmultiDisable0-1"
 	}
-	"origin" "0 -4 64"
+	"origin" "16 16 72"
 	editor
 	{
 		"color" "0 100 250"
@@ -129,7 +449,7 @@ entity
 	{
 		"OnTrue" "ml_box_managerSetStateBTrue0-1"
 	}
-	"origin" "0 -4 20"
+	"origin" "16 16 20"
 	editor
 	{
 		"color" "0 100 250"
@@ -148,14 +468,14 @@ entity
 		side
 		{
 			"id" "541"
-			"plane" "(-72 0 128) (-72 0 -4) (-64 32 -4)"
+			"plane" "(-64 32 -4) (-64 32 128) (-72 0 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -72 0 128"
-				"point" "1 -72 0 -4"
-				"point" "2 -64 32 -4"
-				"point" "3 -64 32 128"
+				"point" "0 -64 32 -4"
+				"point" "1 -64 32 128"
+				"point" "2 -72 0 128"
+				"point" "3 -72 0 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-0.242536 -0.970142 0 0] 0.25"
@@ -167,14 +487,14 @@ entity
 		side
 		{
 			"id" "540"
-			"plane" "(-64 -32 128) (-64 -32 -4) (-72 0 -4)"
+			"plane" "(-72 0 -4) (-72 0 128) (-64 -32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -64 -32 128"
-				"point" "1 -64 -32 -4"
-				"point" "2 -72 0 -4"
-				"point" "3 -72 0 128"
+				"point" "0 -72 0 -4"
+				"point" "1 -72 0 128"
+				"point" "2 -64 -32 128"
+				"point" "3 -64 -32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0.242536 -0.970142 0 0] 0.25"
@@ -186,14 +506,14 @@ entity
 		side
 		{
 			"id" "539"
-			"plane" "(-32 32 128) (-32 32 -4) (-32 -32 -4)"
+			"plane" "(-32 -32 -4) (-32 -32 128) (-32 32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -32 32 128"
-				"point" "1 -32 32 -4"
-				"point" "2 -32 -32 -4"
-				"point" "3 -32 -32 128"
+				"point" "0 -32 -32 -4"
+				"point" "1 -32 -32 128"
+				"point" "2 -32 32 128"
+				"point" "3 -32 32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -205,14 +525,14 @@ entity
 		side
 		{
 			"id" "538"
-			"plane" "(-32 -32 128) (-32 -32 -4) (-64 -32 -4)"
+			"plane" "(-64 -32 -4) (-64 -32 128) (-32 -32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -32 -32 128"
-				"point" "1 -32 -32 -4"
-				"point" "2 -64 -32 -4"
-				"point" "3 -64 -32 128"
+				"point" "0 -64 -32 -4"
+				"point" "1 -64 -32 128"
+				"point" "2 -32 -32 128"
+				"point" "3 -32 -32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -224,14 +544,14 @@ entity
 		side
 		{
 			"id" "537"
-			"plane" "(-64 32 128) (-64 32 -4) (-32 32 -4)"
+			"plane" "(-32 32 -4) (-32 32 128) (-64 32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -64 32 128"
-				"point" "1 -64 32 -4"
-				"point" "2 -32 32 -4"
-				"point" "3 -32 32 128"
+				"point" "0 -32 32 -4"
+				"point" "1 -32 32 128"
+				"point" "2 -64 32 128"
+				"point" "3 -64 32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 0] 0.25"
@@ -243,15 +563,15 @@ entity
 		side
 		{
 			"id" "536"
-			"plane" "(-64 32 -4) (-72 0 -4) (-64 -32 -4)"
+			"plane" "(-64 -32 -4) (-32 -32 -4) (-32 32 -4)"
 			point_data
 			{
 				"numpts" "5"
-				"point" "0 -64 32 -4"
-				"point" "1 -72 0 -4"
-				"point" "2 -64 -32 -4"
-				"point" "3 -32 -32 -4"
-				"point" "4 -32 32 -4"
+				"point" "0 -64 -32 -4"
+				"point" "1 -32 -32 -4"
+				"point" "2 -32 32 -4"
+				"point" "3 -64 32 -4"
+				"point" "4 -72 0 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 0] 0.25"
@@ -263,15 +583,15 @@ entity
 		side
 		{
 			"id" "535"
-			"plane" "(-64 -32 128) (-72 0 128) (-64 32 128)"
+			"plane" "(-64 32 128) (-32 32 128) (-32 -32 128)"
 			point_data
 			{
 				"numpts" "5"
-				"point" "0 -64 -32 128"
-				"point" "1 -72 0 128"
-				"point" "2 -64 32 128"
-				"point" "3 -32 32 128"
-				"point" "4 -32 -32 128"
+				"point" "0 -64 32 128"
+				"point" "1 -32 32 128"
+				"point" "2 -32 -32 128"
+				"point" "3 -64 -32 128"
+				"point" "4 -72 0 128"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 8] 0.25"
@@ -293,14 +613,14 @@ entity
 		side
 		{
 			"id" "547"
-			"plane" "(-52 52 128) (-52 52 -4) (-32 64 -4)"
+			"plane" "(-32 64 -4) (-32 64 128) (-52 52 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -52 52 128"
-				"point" "1 -52 52 -4"
-				"point" "2 -32 64 -4"
-				"point" "3 -32 64 128"
+				"point" "0 -32 64 -4"
+				"point" "1 -32 64 128"
+				"point" "2 -52 52 128"
+				"point" "3 -52 52 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-0.857493 -0.514496 0 0] 0.25"
@@ -312,14 +632,14 @@ entity
 		side
 		{
 			"id" "546"
-			"plane" "(-64 32 128) (-64 32 -4) (-52 52 -4)"
+			"plane" "(-52 52 -4) (-52 52 128) (-64 32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -64 32 128"
-				"point" "1 -64 32 -4"
-				"point" "2 -52 52 -4"
-				"point" "3 -52 52 128"
+				"point" "0 -52 52 -4"
+				"point" "1 -52 52 128"
+				"point" "2 -64 32 128"
+				"point" "3 -64 32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-0.514496 -0.857493 0 0] 0.25"
@@ -331,14 +651,14 @@ entity
 		side
 		{
 			"id" "545"
-			"plane" "(-32 64 128) (-32 64 -4) (-32 32 -4)"
+			"plane" "(-32 32 -4) (-32 32 128) (-32 64 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -32 64 128"
-				"point" "1 -32 64 -4"
-				"point" "2 -32 32 -4"
-				"point" "3 -32 32 128"
+				"point" "0 -32 32 -4"
+				"point" "1 -32 32 128"
+				"point" "2 -32 64 128"
+				"point" "3 -32 64 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -350,14 +670,14 @@ entity
 		side
 		{
 			"id" "544"
-			"plane" "(-32 32 128) (-32 32 -4) (-64 32 -4)"
+			"plane" "(-64 32 -4) (-64 32 128) (-32 32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -32 32 128"
-				"point" "1 -32 32 -4"
-				"point" "2 -64 32 -4"
-				"point" "3 -64 32 128"
+				"point" "0 -64 32 -4"
+				"point" "1 -64 32 128"
+				"point" "2 -32 32 128"
+				"point" "3 -32 32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -369,14 +689,14 @@ entity
 		side
 		{
 			"id" "543"
-			"plane" "(-32 64 -4) (-52 52 -4) (-64 32 -4)"
+			"plane" "(-64 32 -4) (-32 32 -4) (-32 64 -4)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -32 64 -4"
-				"point" "1 -52 52 -4"
-				"point" "2 -64 32 -4"
-				"point" "3 -32 32 -4"
+				"point" "0 -64 32 -4"
+				"point" "1 -32 32 -4"
+				"point" "2 -32 64 -4"
+				"point" "3 -52 52 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 0] 0.25"
@@ -388,14 +708,14 @@ entity
 		side
 		{
 			"id" "542"
-			"plane" "(-64 32 128) (-52 52 128) (-32 64 128)"
+			"plane" "(-32 64 128) (-32 32 128) (-64 32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -64 32 128"
-				"point" "1 -52 52 128"
-				"point" "2 -32 64 128"
-				"point" "3 -32 32 128"
+				"point" "0 -32 64 128"
+				"point" "1 -32 32 128"
+				"point" "2 -64 32 128"
+				"point" "3 -52 52 128"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 8] 0.25"
@@ -417,14 +737,14 @@ entity
 		side
 		{
 			"id" "554"
-			"plane" "(0 72 128) (0 72 -4) (32 64 -4)"
+			"plane" "(32 64 -4) (32 64 128) (0 72 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 0 72 128"
-				"point" "1 0 72 -4"
-				"point" "2 32 64 -4"
-				"point" "3 32 64 128"
+				"point" "0 32 64 -4"
+				"point" "1 32 64 128"
+				"point" "2 0 72 128"
+				"point" "3 0 72 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-0.970142 0.242536 0 0] 0.25"
@@ -436,14 +756,14 @@ entity
 		side
 		{
 			"id" "553"
-			"plane" "(-32 64 128) (-32 64 -4) (0 72 -4)"
+			"plane" "(0 72 -4) (0 72 128) (-32 64 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -32 64 128"
-				"point" "1 -32 64 -4"
-				"point" "2 0 72 -4"
-				"point" "3 0 72 128"
+				"point" "0 0 72 -4"
+				"point" "1 0 72 128"
+				"point" "2 -32 64 128"
+				"point" "3 -32 64 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-0.970142 -0.242536 0 0] 0.25"
@@ -455,14 +775,14 @@ entity
 		side
 		{
 			"id" "552"
-			"plane" "(32 32 128) (32 32 -4) (-32 32 -4)"
+			"plane" "(-32 32 -4) (-32 32 128) (32 32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 32 32 128"
-				"point" "1 32 32 -4"
-				"point" "2 -32 32 -4"
-				"point" "3 -32 32 128"
+				"point" "0 -32 32 -4"
+				"point" "1 -32 32 128"
+				"point" "2 32 32 128"
+				"point" "3 32 32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -474,14 +794,14 @@ entity
 		side
 		{
 			"id" "551"
-			"plane" "(-32 32 128) (-32 32 -4) (-32 64 -4)"
+			"plane" "(-32 64 -4) (-32 64 128) (-32 32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -32 32 128"
-				"point" "1 -32 32 -4"
-				"point" "2 -32 64 -4"
-				"point" "3 -32 64 128"
+				"point" "0 -32 64 -4"
+				"point" "1 -32 64 128"
+				"point" "2 -32 32 128"
+				"point" "3 -32 32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 -1 0 0] 0.25"
@@ -493,14 +813,14 @@ entity
 		side
 		{
 			"id" "550"
-			"plane" "(32 64 128) (32 64 -4) (32 32 -4)"
+			"plane" "(32 32 -4) (32 32 128) (32 64 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 32 64 128"
-				"point" "1 32 64 -4"
-				"point" "2 32 32 -4"
-				"point" "3 32 32 128"
+				"point" "0 32 32 -4"
+				"point" "1 32 32 128"
+				"point" "2 32 64 128"
+				"point" "3 32 64 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -512,15 +832,15 @@ entity
 		side
 		{
 			"id" "549"
-			"plane" "(32 64 -4) (0 72 -4) (-32 64 -4)"
+			"plane" "(-32 64 -4) (-32 32 -4) (32 32 -4)"
 			point_data
 			{
 				"numpts" "5"
-				"point" "0 32 64 -4"
-				"point" "1 0 72 -4"
-				"point" "2 -32 64 -4"
-				"point" "3 -32 32 -4"
-				"point" "4 32 32 -4"
+				"point" "0 -32 64 -4"
+				"point" "1 -32 32 -4"
+				"point" "2 32 32 -4"
+				"point" "3 32 64 -4"
+				"point" "4 0 72 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 0] 0.25"
@@ -532,15 +852,15 @@ entity
 		side
 		{
 			"id" "548"
-			"plane" "(-32 64 128) (0 72 128) (32 64 128)"
+			"plane" "(32 64 128) (32 32 128) (-32 32 128)"
 			point_data
 			{
 				"numpts" "5"
-				"point" "0 -32 64 128"
-				"point" "1 0 72 128"
-				"point" "2 32 64 128"
-				"point" "3 32 32 128"
-				"point" "4 -32 32 128"
+				"point" "0 32 64 128"
+				"point" "1 32 32 128"
+				"point" "2 -32 32 128"
+				"point" "3 -32 64 128"
+				"point" "4 0 72 128"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 8] 0.25"
@@ -562,14 +882,14 @@ entity
 		side
 		{
 			"id" "561"
-			"plane" "(72 0 128) (72 0 -4) (64 -32 -4)"
+			"plane" "(64 -32 -4) (64 -32 128) (72 0 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 72 0 128"
-				"point" "1 72 0 -4"
-				"point" "2 64 -32 -4"
-				"point" "3 64 -32 128"
+				"point" "0 64 -32 -4"
+				"point" "1 64 -32 128"
+				"point" "2 72 0 128"
+				"point" "3 72 0 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0.242536 0.970142 0 0] 0.25"
@@ -581,14 +901,14 @@ entity
 		side
 		{
 			"id" "560"
-			"plane" "(64 32 128) (64 32 -4) (72 0 -4)"
+			"plane" "(72 0 -4) (72 0 128) (64 32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 64 32 128"
-				"point" "1 64 32 -4"
-				"point" "2 72 0 -4"
-				"point" "3 72 0 128"
+				"point" "0 72 0 -4"
+				"point" "1 72 0 128"
+				"point" "2 64 32 128"
+				"point" "3 64 32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-0.242536 0.970142 0 0] 0.25"
@@ -600,14 +920,14 @@ entity
 		side
 		{
 			"id" "559"
-			"plane" "(32 -32 128) (32 -32 -4) (32 32 -4)"
+			"plane" "(32 32 -4) (32 32 128) (32 -32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 32 -32 128"
-				"point" "1 32 -32 -4"
-				"point" "2 32 32 -4"
-				"point" "3 32 32 128"
+				"point" "0 32 32 -4"
+				"point" "1 32 32 128"
+				"point" "2 32 -32 128"
+				"point" "3 32 -32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 -1 0 0] 0.25"
@@ -619,14 +939,14 @@ entity
 		side
 		{
 			"id" "558"
-			"plane" "(32 32 128) (32 32 -4) (64 32 -4)"
+			"plane" "(64 32 -4) (64 32 128) (32 32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 32 32 128"
-				"point" "1 32 32 -4"
-				"point" "2 64 32 -4"
-				"point" "3 64 32 128"
+				"point" "0 64 32 -4"
+				"point" "1 64 32 128"
+				"point" "2 32 32 128"
+				"point" "3 32 32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 0] 0.25"
@@ -638,14 +958,14 @@ entity
 		side
 		{
 			"id" "557"
-			"plane" "(64 -32 128) (64 -32 -4) (32 -32 -4)"
+			"plane" "(32 -32 -4) (32 -32 128) (64 -32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 64 -32 128"
-				"point" "1 64 -32 -4"
-				"point" "2 32 -32 -4"
-				"point" "3 32 -32 128"
+				"point" "0 32 -32 -4"
+				"point" "1 32 -32 128"
+				"point" "2 64 -32 128"
+				"point" "3 64 -32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -657,15 +977,15 @@ entity
 		side
 		{
 			"id" "556"
-			"plane" "(64 -32 -4) (72 0 -4) (64 32 -4)"
+			"plane" "(64 32 -4) (32 32 -4) (32 -32 -4)"
 			point_data
 			{
 				"numpts" "5"
-				"point" "0 64 -32 -4"
-				"point" "1 72 0 -4"
-				"point" "2 64 32 -4"
-				"point" "3 32 32 -4"
-				"point" "4 32 -32 -4"
+				"point" "0 64 32 -4"
+				"point" "1 32 32 -4"
+				"point" "2 32 -32 -4"
+				"point" "3 64 -32 -4"
+				"point" "4 72 0 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 0] 0.25"
@@ -677,15 +997,15 @@ entity
 		side
 		{
 			"id" "555"
-			"plane" "(64 32 128) (72 0 128) (64 -32 128)"
+			"plane" "(64 -32 128) (32 -32 128) (32 32 128)"
 			point_data
 			{
 				"numpts" "5"
-				"point" "0 64 32 128"
-				"point" "1 72 0 128"
-				"point" "2 64 -32 128"
-				"point" "3 32 -32 128"
-				"point" "4 32 32 128"
+				"point" "0 64 -32 128"
+				"point" "1 32 -32 128"
+				"point" "2 32 32 128"
+				"point" "3 64 32 128"
+				"point" "4 72 0 128"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 8] 0.25"
@@ -707,14 +1027,14 @@ entity
 		side
 		{
 			"id" "568"
-			"plane" "(0 -72 128) (0 -72 -4) (-32 -64 -4)"
+			"plane" "(-32 -64 -4) (-32 -64 128) (0 -72 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 0 -72 128"
-				"point" "1 0 -72 -4"
-				"point" "2 -32 -64 -4"
-				"point" "3 -32 -64 128"
+				"point" "0 -32 -64 -4"
+				"point" "1 -32 -64 128"
+				"point" "2 0 -72 128"
+				"point" "3 0 -72 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0.970142 -0.242536 0 0] 0.25"
@@ -726,14 +1046,14 @@ entity
 		side
 		{
 			"id" "567"
-			"plane" "(32 -64 128) (32 -64 -4) (0 -72 -4)"
+			"plane" "(0 -72 -4) (0 -72 128) (32 -64 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 32 -64 128"
-				"point" "1 32 -64 -4"
-				"point" "2 0 -72 -4"
-				"point" "3 0 -72 128"
+				"point" "0 0 -72 -4"
+				"point" "1 0 -72 128"
+				"point" "2 32 -64 128"
+				"point" "3 32 -64 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0.970142 0.242536 0 0] 0.25"
@@ -745,14 +1065,14 @@ entity
 		side
 		{
 			"id" "566"
-			"plane" "(-32 -32 128) (-32 -32 -4) (32 -32 -4)"
+			"plane" "(32 -32 -4) (32 -32 128) (-32 -32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -32 -32 128"
-				"point" "1 -32 -32 -4"
-				"point" "2 32 -32 -4"
-				"point" "3 32 -32 128"
+				"point" "0 32 -32 -4"
+				"point" "1 32 -32 128"
+				"point" "2 -32 -32 128"
+				"point" "3 -32 -32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 0] 0.25"
@@ -764,14 +1084,14 @@ entity
 		side
 		{
 			"id" "565"
-			"plane" "(32 -32 128) (32 -32 -4) (32 -64 -4)"
+			"plane" "(32 -64 -4) (32 -64 128) (32 -32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 32 -32 128"
-				"point" "1 32 -32 -4"
-				"point" "2 32 -64 -4"
-				"point" "3 32 -64 128"
+				"point" "0 32 -64 -4"
+				"point" "1 32 -64 128"
+				"point" "2 32 -32 128"
+				"point" "3 32 -32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -783,14 +1103,14 @@ entity
 		side
 		{
 			"id" "564"
-			"plane" "(-32 -64 128) (-32 -64 -4) (-32 -32 -4)"
+			"plane" "(-32 -32 -4) (-32 -32 128) (-32 -64 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -32 -64 128"
-				"point" "1 -32 -64 -4"
-				"point" "2 -32 -32 -4"
-				"point" "3 -32 -32 128"
+				"point" "0 -32 -32 -4"
+				"point" "1 -32 -32 128"
+				"point" "2 -32 -64 128"
+				"point" "3 -32 -64 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 -1 0 0] 0.25"
@@ -802,15 +1122,15 @@ entity
 		side
 		{
 			"id" "563"
-			"plane" "(-32 -64 -4) (0 -72 -4) (32 -64 -4)"
+			"plane" "(32 -64 -4) (32 -32 -4) (-32 -32 -4)"
 			point_data
 			{
 				"numpts" "5"
-				"point" "0 -32 -64 -4"
-				"point" "1 0 -72 -4"
-				"point" "2 32 -64 -4"
-				"point" "3 32 -32 -4"
-				"point" "4 -32 -32 -4"
+				"point" "0 32 -64 -4"
+				"point" "1 32 -32 -4"
+				"point" "2 -32 -32 -4"
+				"point" "3 -32 -64 -4"
+				"point" "4 0 -72 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 0] 0.25"
@@ -822,15 +1142,15 @@ entity
 		side
 		{
 			"id" "562"
-			"plane" "(32 -64 128) (0 -72 128) (-32 -64 128)"
+			"plane" "(-32 -64 128) (-32 -32 128) (32 -32 128)"
 			point_data
 			{
 				"numpts" "5"
-				"point" "0 32 -64 128"
-				"point" "1 0 -72 128"
-				"point" "2 -32 -64 128"
-				"point" "3 -32 -32 128"
-				"point" "4 32 -32 128"
+				"point" "0 -32 -64 128"
+				"point" "1 -32 -32 128"
+				"point" "2 32 -32 128"
+				"point" "3 32 -64 128"
+				"point" "4 0 -72 128"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 8] 0.25"
@@ -852,14 +1172,14 @@ entity
 		side
 		{
 			"id" "574"
-			"plane" "(52 -52 128) (52 -52 -4) (32 -64 -4)"
+			"plane" "(32 -64 -4) (32 -64 128) (52 -52 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 52 -52 128"
-				"point" "1 52 -52 -4"
-				"point" "2 32 -64 -4"
-				"point" "3 32 -64 128"
+				"point" "0 32 -64 -4"
+				"point" "1 32 -64 128"
+				"point" "2 52 -52 128"
+				"point" "3 52 -52 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0.857493 0.514496 0 0] 0.25"
@@ -871,14 +1191,14 @@ entity
 		side
 		{
 			"id" "573"
-			"plane" "(64 -32 128) (64 -32 -4) (52 -52 -4)"
+			"plane" "(52 -52 -4) (52 -52 128) (64 -32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 64 -32 128"
-				"point" "1 64 -32 -4"
-				"point" "2 52 -52 -4"
-				"point" "3 52 -52 128"
+				"point" "0 52 -52 -4"
+				"point" "1 52 -52 128"
+				"point" "2 64 -32 128"
+				"point" "3 64 -32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0.514496 0.857493 0 0] 0.25"
@@ -890,14 +1210,14 @@ entity
 		side
 		{
 			"id" "572"
-			"plane" "(32 -64 128) (32 -64 -4) (32 -32 -4)"
+			"plane" "(32 -32 -4) (32 -32 128) (32 -64 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 32 -64 128"
-				"point" "1 32 -64 -4"
-				"point" "2 32 -32 -4"
-				"point" "3 32 -32 128"
+				"point" "0 32 -32 -4"
+				"point" "1 32 -32 128"
+				"point" "2 32 -64 128"
+				"point" "3 32 -64 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 -1 0 0] 0.25"
@@ -909,14 +1229,14 @@ entity
 		side
 		{
 			"id" "571"
-			"plane" "(32 -32 128) (32 -32 -4) (64 -32 -4)"
+			"plane" "(64 -32 -4) (64 -32 128) (32 -32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 32 -32 128"
-				"point" "1 32 -32 -4"
-				"point" "2 64 -32 -4"
-				"point" "3 64 -32 128"
+				"point" "0 64 -32 -4"
+				"point" "1 64 -32 128"
+				"point" "2 32 -32 128"
+				"point" "3 32 -32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 0] 0.25"
@@ -928,14 +1248,14 @@ entity
 		side
 		{
 			"id" "570"
-			"plane" "(32 -32 -4) (32 -64 -4) (52 -52 -4)"
+			"plane" "(52 -52 -4) (64 -32 -4) (32 -32 -4)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 32 -32 -4"
-				"point" "1 32 -64 -4"
-				"point" "2 52 -52 -4"
-				"point" "3 64 -32 -4"
+				"point" "0 52 -52 -4"
+				"point" "1 64 -32 -4"
+				"point" "2 32 -32 -4"
+				"point" "3 32 -64 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 0] 0.25"
@@ -947,14 +1267,14 @@ entity
 		side
 		{
 			"id" "569"
-			"plane" "(52 -52 128) (32 -64 128) (32 -32 128)"
+			"plane" "(32 -32 128) (64 -32 128) (52 -52 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 52 -52 128"
-				"point" "1 32 -64 128"
-				"point" "2 32 -32 128"
-				"point" "3 64 -32 128"
+				"point" "0 32 -32 128"
+				"point" "1 64 -32 128"
+				"point" "2 52 -52 128"
+				"point" "3 32 -64 128"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 8] 0.25"
@@ -976,14 +1296,14 @@ entity
 		side
 		{
 			"id" "580"
-			"plane" "(-52 -52 128) (-52 -52 -4) (-64 -32 -4)"
+			"plane" "(-64 -32 -4) (-64 -32 128) (-52 -52 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -52 -52 128"
-				"point" "1 -52 -52 -4"
-				"point" "2 -64 -32 -4"
-				"point" "3 -64 -32 128"
+				"point" "0 -64 -32 -4"
+				"point" "1 -64 -32 128"
+				"point" "2 -52 -52 128"
+				"point" "3 -52 -52 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0.514496 -0.857493 0 0] 0.25"
@@ -995,14 +1315,14 @@ entity
 		side
 		{
 			"id" "579"
-			"plane" "(-32 -64 128) (-32 -64 -4) (-52 -52 -4)"
+			"plane" "(-52 -52 -4) (-52 -52 128) (-32 -64 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -32 -64 128"
-				"point" "1 -32 -64 -4"
-				"point" "2 -52 -52 -4"
-				"point" "3 -52 -52 128"
+				"point" "0 -52 -52 -4"
+				"point" "1 -52 -52 128"
+				"point" "2 -32 -64 128"
+				"point" "3 -32 -64 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0.857493 -0.514496 0 0] 0.25"
@@ -1014,14 +1334,14 @@ entity
 		side
 		{
 			"id" "578"
-			"plane" "(-64 -32 128) (-64 -32 -4) (-32 -32 -4)"
+			"plane" "(-32 -32 -4) (-32 -32 128) (-64 -32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -64 -32 128"
-				"point" "1 -64 -32 -4"
-				"point" "2 -32 -32 -4"
-				"point" "3 -32 -32 128"
+				"point" "0 -32 -32 -4"
+				"point" "1 -32 -32 128"
+				"point" "2 -64 -32 128"
+				"point" "3 -64 -32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 0] 0.25"
@@ -1033,14 +1353,14 @@ entity
 		side
 		{
 			"id" "577"
-			"plane" "(-32 -32 128) (-32 -32 -4) (-32 -64 -4)"
+			"plane" "(-32 -64 -4) (-32 -64 128) (-32 -32 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -32 -32 128"
-				"point" "1 -32 -32 -4"
-				"point" "2 -32 -64 -4"
-				"point" "3 -32 -64 128"
+				"point" "0 -32 -64 -4"
+				"point" "1 -32 -64 128"
+				"point" "2 -32 -32 128"
+				"point" "3 -32 -32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -1052,14 +1372,14 @@ entity
 		side
 		{
 			"id" "576"
-			"plane" "(-32 -32 -4) (-64 -32 -4) (-52 -52 -4)"
+			"plane" "(-52 -52 -4) (-32 -64 -4) (-32 -32 -4)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -32 -32 -4"
-				"point" "1 -64 -32 -4"
-				"point" "2 -52 -52 -4"
-				"point" "3 -32 -64 -4"
+				"point" "0 -52 -52 -4"
+				"point" "1 -32 -64 -4"
+				"point" "2 -32 -32 -4"
+				"point" "3 -64 -32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 0] 0.25"
@@ -1071,14 +1391,14 @@ entity
 		side
 		{
 			"id" "575"
-			"plane" "(-32 -64 128) (-52 -52 128) (-64 -32 128)"
+			"plane" "(-64 -32 128) (-32 -32 128) (-32 -64 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -32 -64 128"
-				"point" "1 -52 -52 128"
-				"point" "2 -64 -32 128"
-				"point" "3 -32 -32 128"
+				"point" "0 -64 -32 128"
+				"point" "1 -32 -32 128"
+				"point" "2 -32 -64 128"
+				"point" "3 -52 -52 128"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 8] 0.25"
@@ -1100,14 +1420,14 @@ entity
 		side
 		{
 			"id" "586"
-			"plane" "(52 52 128) (52 52 -4) (64 32 -4)"
+			"plane" "(64 32 128) (48 48 128) (48 48 -4)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 52 52 128"
-				"point" "1 52 52 -4"
-				"point" "2 64 32 -4"
-				"point" "3 64 32 128"
+				"point" "0 64 32 128"
+				"point" "1 48 48 128"
+				"point" "2 48 48 -4"
+				"point" "3 64 32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-0.514496 0.857493 0 0] 0.25"
@@ -1119,14 +1439,14 @@ entity
 		side
 		{
 			"id" "585"
-			"plane" "(32 64 128) (32 64 -4) (52 52 -4)"
+			"plane" "(48 48 128) (32 64 128) (32 64 -4)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 32 64 128"
-				"point" "1 32 64 -4"
-				"point" "2 52 52 -4"
-				"point" "3 52 52 128"
+				"point" "0 48 48 128"
+				"point" "1 32 64 128"
+				"point" "2 32 64 -4"
+				"point" "3 48 48 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-0.857493 0.514496 0 0] 0.25"
@@ -1138,14 +1458,14 @@ entity
 		side
 		{
 			"id" "584"
-			"plane" "(64 32 128) (64 32 -4) (32 32 -4)"
+			"plane" "(32 32 128) (64 32 128) (64 32 -4)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 64 32 128"
-				"point" "1 64 32 -4"
-				"point" "2 32 32 -4"
-				"point" "3 32 32 128"
+				"point" "0 32 32 128"
+				"point" "1 64 32 128"
+				"point" "2 64 32 -4"
+				"point" "3 32 32 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -1157,14 +1477,14 @@ entity
 		side
 		{
 			"id" "583"
-			"plane" "(32 32 128) (32 32 -4) (32 64 -4)"
+			"plane" "(32 64 128) (32 32 128) (32 32 -4)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 32 32 128"
-				"point" "1 32 32 -4"
-				"point" "2 32 64 -4"
-				"point" "3 32 64 128"
+				"point" "0 32 64 128"
+				"point" "1 32 32 128"
+				"point" "2 32 32 -4"
+				"point" "3 32 64 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 -1 0 0] 0.25"
@@ -1176,14 +1496,14 @@ entity
 		side
 		{
 			"id" "582"
-			"plane" "(32 32 -4) (64 32 -4) (52 52 -4)"
+			"plane" "(32 64 -4) (32 32 -4) (64 32 -4)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 32 32 -4"
-				"point" "1 64 32 -4"
-				"point" "2 52 52 -4"
-				"point" "3 32 64 -4"
+				"point" "0 32 64 -4"
+				"point" "1 32 32 -4"
+				"point" "2 64 32 -4"
+				"point" "3 48 48 -4"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[-1 0 0 0] 0.25"
@@ -1195,14 +1515,14 @@ entity
 		side
 		{
 			"id" "581"
-			"plane" "(32 64 128) (52 52 128) (64 32 128)"
+			"plane" "(32 32 128) (32 64 128) (48 48 128)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 32 64 128"
-				"point" "1 52 52 128"
-				"point" "2 64 32 128"
-				"point" "3 32 32 128"
+				"point" "0 32 32 128"
+				"point" "1 32 64 128"
+				"point" "2 48 48 128"
+				"point" "3 64 32 128"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[1 0 0 8] 0.25"
@@ -1262,10 +1582,10 @@ entity
 	"targetname" "ml_spawn_box_case"
 	connections
 	{
-		"OnCase01" "m_box_spawn_1Trigger0-1"
-		"OnCase02" "m_box_spawn_2Trigger0-1"
-		"OnCase03" "m_box_spawn_1Trigger0-1"
-		"OnCase03" "m_box_spawn_2Trigger0-1"
+		"OnCase01" "m_box_ptemp_1ForceSpawn0-1"
+		"OnCase02" "m_box_ptemp_2ForceSpawn0-1"
+		"OnCase03" "m_box_ptemp_1ForceSpawn0-1"
+		"OnCase03" "m_box_ptemp_2ForceSpawn0-1"
 	}
 	"origin" "-24 -8 24"
 	editor
@@ -1311,10 +1631,10 @@ entity
 	"targetname" "ml_dissolve_box_case"
 	connections
 	{
-		"OnCase01" "m_box_dissolve_dropped_1Trigger0-1"
-		"OnCase02" "m_box_dissolve_dropped_2Trigger0-1"
-		"OnCase03" "m_box_dissolve_dropped_1Trigger0-1"
-		"OnCase03" "m_box_dissolve_dropped_2Trigger0-1"
+		"OnCase01" "!m_box_1FireUser10-1"
+		"OnCase02" "!m_box_2FireUser10-1"
+		"OnCase03" "!m_box_1FireUser10-1"
+		"OnCase03" "!m_box_2FireUser10-1"
 	}
 	"origin" "-24 8 24"
 	editor
@@ -1339,7 +1659,7 @@ entity
 	{
 		"OutValue" "ml_boxes_in_dispenser_caseInValue0-1"
 	}
-	"origin" "16 0 76"
+	"origin" "16 0 36"
 	editor
 	{
 		"color" "0 100 250"
@@ -1371,7 +1691,7 @@ entity
 		"OnDefault" "ml_checkbox2_brchSetValue00-1"
 		"OnDefault" "ml_checkbox1_brchSetValue10-1"
 	}
-	"origin" "16 0 60"
+	"origin" "0 0 36"
 	editor
 	{
 		"color" "0 100 250"
@@ -1394,7 +1714,8 @@ entity
 		"OnChangeToAllTrue" "dl_dispensor_land_clipDisable0-1"
 		"OnChangeToAllTrue" "ml_close_trigEnable0-1"
 		"OnChangeToAllTrue" "!selfSetStateAFalse0-1"
-		"OnChangeToAllTrue" "!selfSetStateBFalse0-1"
+		"OnChangeToAllFalse" "ml_box_in_dispensor_counter_trigmultiEnable0-1"
+		"OnChangeToAllTrue" "ml_checkbox2_trigDisable0-1"
 	}
 	"origin" "16 0 20"
 	editor
@@ -1409,8 +1730,8 @@ entity
 {
 	"id" "12100"
 	"classname" "trigger_multiple"
-	"filtername" "ml_filter_name_for_triggers"
-	"origin" "0 -0.01 42"
+	"filtername" "ml_filter"
+	"origin" "0 -0.01 36"
 	"solid" "6"
 	"spawnflags" "4104"
 	"StartDisabled" "1"
@@ -1418,10 +1739,7 @@ entity
 	"wait" "0.2"
 	connections
 	{
-		"OnEndTouch" "ml_box_is_out_addoutput_f_multiTestActivator0.01-1"
-		"OnEndTouch" "ml_box_is_out_limiterAdd10.01-1"
-		"OnEndTouch" "!activatorAddOutputOnUser1 !self:Dissolve,,0,10.01-1"
-		"OnEndTouch" "!activatorEnablePortalFunnel0.01-1"
+		"OnEndTouch" "ml_box_is_out_addoutputTestActivator0.01-1"
 	}
 	solid
 	{
@@ -1448,14 +1766,14 @@ entity
 		side
 		{
 			"id" "101"
-			"plane" "(-24 -24 -4) (24 -24 -4) (24 24 -4)"
+			"plane" "(-24 -24 -16) (24 -24 -16) (24 24 -16)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -24 -24 -4"
-				"point" "1 24 -24 -4"
-				"point" "2 24 24 -4"
-				"point" "3 -24 24 -4"
+				"point" "0 -24 -24 -16"
+				"point" "1 24 -24 -16"
+				"point" "2 24 24 -16"
+				"point" "3 -24 24 -16"
 			}
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 1 0 32] 0.75"
@@ -1467,14 +1785,14 @@ entity
 		side
 		{
 			"id" "100"
-			"plane" "(-24 24 88) (-24 -24 88) (-24 -24 -4)"
+			"plane" "(-24 24 88) (-24 -24 88) (-24 -24 -16)"
 			point_data
 			{
 				"numpts" "4"
 				"point" "0 -24 24 88"
 				"point" "1 -24 -24 88"
-				"point" "2 -24 -24 -4"
-				"point" "3 -24 24 -4"
+				"point" "2 -24 -24 -16"
+				"point" "3 -24 24 -16"
 			}
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[0 -1 0 32] 0.75"
@@ -1486,12 +1804,12 @@ entity
 		side
 		{
 			"id" "99"
-			"plane" "(24 24 -4) (24 -24 -4) (24 -24 88)"
+			"plane" "(24 24 -16) (24 -24 -16) (24 -24 88)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 24 24 -4"
-				"point" "1 24 -24 -4"
+				"point" "0 24 24 -16"
+				"point" "1 24 -24 -16"
 				"point" "2 24 -24 88"
 				"point" "3 24 24 88"
 			}
@@ -1505,14 +1823,14 @@ entity
 		side
 		{
 			"id" "98"
-			"plane" "(24 24 88) (-24 24 88) (-24 24 -4)"
+			"plane" "(24 24 88) (-24 24 88) (-24 24 -16)"
 			point_data
 			{
 				"numpts" "4"
 				"point" "0 24 24 88"
 				"point" "1 -24 24 88"
-				"point" "2 -24 24 -4"
-				"point" "3 24 24 -4"
+				"point" "2 -24 24 -16"
+				"point" "3 24 24 -16"
 			}
 			"material" "TOOLS/TOOLSTRIGGER"
 			"uaxis" "[-1 0 0 32] 0.75"
@@ -1524,12 +1842,12 @@ entity
 		side
 		{
 			"id" "97"
-			"plane" "(24 -24 -4) (-24 -24 -4) (-24 -24 88)"
+			"plane" "(24 -24 -16) (-24 -24 -16) (-24 -24 88)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 24 -24 -4"
-				"point" "1 -24 -24 -4"
+				"point" "0 24 -24 -16"
+				"point" "1 -24 -24 -16"
 				"point" "2 -24 -24 88"
 				"point" "3 24 -24 88"
 			}
@@ -1557,123 +1875,22 @@ entity
 }
 entity
 {
-	"id" "11891"
-	"classname" "logic_branch"
-	"angles" "0 0 0"
-	"targetname" "ml_box1_is_doube_drop"
-	connections
-	{
-		"OnTrue" "ml_spawn_boxSetValue20-1"
-		"OnTrue" "ml_dissolve_boxSetValue10-1"
-		"OnFalse" "ml_dissolve_boxSetValue10-1"
-		"OnFalse" "ml_spawn_boxSetValue10-1"
-	}
-	"origin" "-40 -24 -24"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "11897"
-	"classname" "logic_branch"
-	"angles" "0 0 0"
-	"initialvalue" "0"
-	"targetname" "ml_box2_is_doube_drop"
-	connections
-	{
-		"OnFalse" "ml_dissolve_boxSetValue20-1"
-		"OnFalse" "ml_spawn_boxSetValue20-1"
-		"OnTrue" "ml_dissolve_boxSetValue20-1"
-		"OnTrue" "ml_spawn_boxSetValue10-1"
-	}
-	"origin" "-40 -8 -24"
-	editor
-	{
-		"color" "0 100 250"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "5499"
-	"classname" "filter_multi"
-	"angles" "0 0 0"
-	"filter01" "ml_filter_name_for_triggers_box1"
-	"filter02" "ml_filter_name_for_triggers_box2"
-	"filtertype" "1"
-	"negated" "0"
-	"PassCallerWhenTested" "0"
-	"targetname" "ml_filter_name_for_triggers"
-	"origin" "-24 16 -8"
-	editor
-	{
-		"color" "108 169 0"
-		"groupid" "6004"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "5543"
-	"classname" "filter_activator_name"
-	"angles" "0 0 0"
-	"filtername" "m_box_1"
-	"negated" "0"
-	"PassCallerWhenTested" "0"
-	"targetname" "ml_filter_name_for_triggers_box1"
-	"origin" "-24 8 -24"
-	editor
-	{
-		"color" "108 169 0"
-		"groupid" "6004"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "5595"
-	"classname" "filter_activator_name"
-	"angles" "0 0 0"
-	"filtername" "m_box_2"
-	"negated" "0"
-	"PassCallerWhenTested" "0"
-	"targetname" "ml_filter_name_for_triggers_box2"
-	"origin" "-24 24 -24"
-	editor
-	{
-		"color" "108 169 0"
-		"groupid" "6004"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
 	"id" "6189"
 	"classname" "filter_activator_name"
 	"angles" "0 0 0"
-	"filtername" "m_box_2"
+	"filtername" "!m_box_2"
 	"negated" "0"
 	"PassCallerWhenTested" "0"
-	"targetname" "ml_box2_is_out_addoutput_f_an"
+	"targetname" "ml_box2_is_out_addoutput_f"
 	connections
 	{
-		"OnPass" "!activatorSetEntityName$CurrentFixUpName-m_box_dropped_20-1"
-		"OnPass" "!activatorFireUser20.01-1"
+		"OnPass" "!activatorFireUser20-1"
+		"OnPass" "ml_box2_is_out_addoutput_rlDisable0-1"
+		"OnPass" "!activatorEnablePortalFunnel0-1"
+		"OnPass" "!activatorAddOutputOnUser1 !self:Dissolve,,0,10-1"
+		"OnPass" "ml_box_is_out_limiterAdd10-1"
 	}
-	"origin" "-24 -8 -24"
+	"origin" "-24 -8 -40"
 	editor
 	{
 		"color" "152 153 0"
@@ -1688,16 +1905,16 @@ entity
 	"id" "6253"
 	"classname" "filter_multi"
 	"angles" "0 0 0"
-	"filter01" "ml_box1_is_out_addoutput_f_an"
-	"filter02" "ml_box2_is_out_addoutput_f_an"
+	"filter01" "ml_box1_is_out_addoutput_f"
+	"filter02" "ml_box2_is_out_addoutput_f"
 	"filtertype" "1"
 	"negated" "0"
 	"PassCallerWhenTested" "0"
-	"targetname" "ml_box_is_out_addoutput_f_multi"
+	"targetname" "ml_box_is_out_addoutput"
 	connections
 	{
-		"OnPass" "ml_box1_is_out_addoutput_f_anTestActivator0-1"
-		"OnPass" "ml_box2_is_out_addoutput_f_anTestActivator0-1"
+		"OnPass" "ml_box1_is_out_addoutput_rlTrigger0-1"
+		"OnPass" "ml_box2_is_out_addoutput_rlTrigger0-1"
 	}
 	"origin" "-24 -16 -8"
 	editor
@@ -1714,13 +1931,13 @@ entity
 	"id" "6639"
 	"classname" "filter_activator_name"
 	"angles" "0 0 0"
-	"filtername" "m_box_2"
 	"negated" "0"
 	"PassCallerWhenTested" "0"
-	"targetname" "ml_box2_is_in_addoutput_f_an"
+	"targetname" "ml_box2_is_in_addoutput_f"
 	connections
 	{
-		"OnPass" "ml_box2_is_doube_dropTest0-1"
+		"OnPass" "ml_box2_is_doube_drop_test_if_inTrigger0-1"
+		"OnPass" "ml_box2_is_out_addoutput_rlEnable0-1"
 	}
 	"origin" "-24 -8 64"
 	editor
@@ -1736,16 +1953,16 @@ entity
 	"id" "6642"
 	"classname" "filter_multi"
 	"angles" "0 0 0"
-	"filter01" "ml_box1_is_in_addoutput_f_an"
-	"filter02" "ml_box2_is_in_addoutput_f_an"
+	"filter01" "ml_box1_is_in_addoutput_f"
+	"filter02" "ml_box2_is_in_addoutput_f"
 	"filtertype" "1"
 	"negated" "0"
 	"PassCallerWhenTested" "0"
-	"targetname" "ml_box_is_in_addoutput_f_multi"
+	"targetname" "ml_box_is_in_addoutput"
 	connections
 	{
-		"OnPass" "ml_box1_is_in_addoutput_f_anTestActivator0-1"
-		"OnPass" "ml_box2_is_in_addoutput_f_anTestActivator0-1"
+		"OnPass" "ml_box1_is_in_addoutput_fTestActivator0-1"
+		"OnPass" "ml_box2_is_in_addoutput_fTestActivator0-1"
 	}
 	"origin" "-24 -16 80"
 	editor
@@ -1761,13 +1978,13 @@ entity
 	"id" "6664"
 	"classname" "filter_activator_name"
 	"angles" "0 0 0"
-	"filtername" "m_box_1"
 	"negated" "0"
 	"PassCallerWhenTested" "0"
-	"targetname" "ml_box1_is_in_addoutput_f_an"
+	"targetname" "ml_box1_is_in_addoutput_f"
 	connections
 	{
-		"OnPass" "ml_box1_is_doube_dropTest0-1"
+		"OnPass" "ml_box1_is_doube_drop_test_if_inTrigger0-1"
+		"OnPass" "ml_box1_is_out_addoutput_rlEnable0-1"
 	}
 	"origin" "-24 -24 64"
 	editor
@@ -1782,7 +1999,7 @@ entity
 {
 	"id" "4091"
 	"classname" "trigger_multiple"
-	"filtername" "ml_filter_name_for_triggers"
+	"filtername" "ml_filter"
 	"origin" "0 0 86"
 	"solid" "6"
 	"spawnflags" "4104"
@@ -1791,7 +2008,7 @@ entity
 	"wait" "0.2"
 	connections
 	{
-		"OnStartTouch" "ml_box_is_in_addoutput_f_multiTestActivator0-1"
+		"OnStartTouch" "ml_box_is_in_addoutputTestActivator0-1"
 	}
 	solid
 	{
@@ -1930,16 +2147,18 @@ entity
 	"id" "4318"
 	"classname" "filter_activator_name"
 	"angles" "0 0 0"
-	"filtername" "m_box_1"
 	"negated" "0"
 	"PassCallerWhenTested" "0"
-	"targetname" "ml_box1_is_out_addoutput_f_an"
+	"targetname" "ml_box1_is_out_addoutput_f"
 	connections
 	{
-		"OnPass" "!activatorFireUser20.01-1"
-		"OnPass" "!activatorSetEntityName$CurrentFixUpName-m_box_dropped_10-1"
+		"OnPass" "!activatorFireUser20-1"
+		"OnPass" "ml_box1_is_out_addoutput_rlDisable0-1"
+		"OnPass" "!activatorEnablePortalFunnel0-1"
+		"OnPass" "!activatorAddOutputOnUser1 !self:Dissolve,,0,10-1"
+		"OnPass" "ml_box_is_out_limiterAdd10-1"
 	}
-	"origin" "-24 -24 -24"
+	"origin" "-24 -24 -40"
 	editor
 	{
 		"color" "152 153 0"
@@ -1975,7 +2194,7 @@ entity
 {
 	"id" "3031"
 	"classname" "trigger_multiple"
-	"filtername" "ml_filter_name_for_triggers"
+	"filtername" "ml_filter"
 	"origin" "0 0 62"
 	"solid" "6"
 	"spawnflags" "4104"
@@ -2139,8 +2358,11 @@ entity
 		"OnHitMin" "ml_boxes_in_dispenserSetValue00-1"
 		"OnHitMax" "ml_checkbox1_trigEnable0-1"
 		"OnHitMax" "ml_checkbox2_trigDisable0-1"
+		"OnHitMin" "ml_box_in_dispensor_counter_trigmultiEnable0-1"
+		"OnHitMin" "ml_box_managerSetStateBFalse0-1"
+		"OnHitMin" "ml_box_is_in_addoutput_rlEnable0-1"
 	}
-	"origin" "0 0 -4"
+	"origin" "24 24 -24"
 	editor
 	{
 		"color" "234 231 0"
@@ -2154,7 +2376,7 @@ entity
 {
 	"id" "1918"
 	"classname" "trigger_multiple"
-	"filtername" "ml_filter_name_for_triggers"
+	"filtername" "ml_filter"
 	"origin" "0 0 10"
 	"solid" "6"
 	"spawnflags" "4104"
@@ -2329,18 +2551,18 @@ entity
 		side
 		{
 			"id" "42"
-			"plane" "(-40 40 -2) (40 40 -2) (40 -40 -2)"
+			"plane" "(-36 36 -2) (36 36 -2) (36 -36 -2)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -40 40 -2"
-				"point" "1 40 40 -2"
-				"point" "2 40 -40 -2"
-				"point" "3 -40 -40 -2"
+				"point" "0 -36 36 -2"
+				"point" "1 36 36 -2"
+				"point" "2 36 -36 -2"
+				"point" "3 -36 -36 -2"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 1 0 32] 0.75"
-			"vaxis" "[1 0 0 32] 0.75"
+			"uaxis" "[0 1 0 32] 1.125"
+			"vaxis" "[1 0 0 32] 1.125"
 			"rotation" "90"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -2348,18 +2570,18 @@ entity
 		side
 		{
 			"id" "41"
-			"plane" "(-40 -40 -5) (40 -40 -5) (40 40 -5)"
+			"plane" "(-36 -36 -5) (36 -36 -5) (36 36 -5)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -40 -40 -5"
-				"point" "1 40 -40 -5"
-				"point" "2 40 40 -5"
-				"point" "3 -40 40 -5"
+				"point" "0 -36 -36 -5"
+				"point" "1 36 -36 -5"
+				"point" "2 36 36 -5"
+				"point" "3 -36 36 -5"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 1 0 32] 0.75"
-			"vaxis" "[-1 0 0 32] 0.75"
+			"uaxis" "[0 1 0 32] 1.125"
+			"vaxis" "[-1 0 0 32] 1.125"
 			"rotation" "90"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -2367,18 +2589,18 @@ entity
 		side
 		{
 			"id" "40"
-			"plane" "(-40 40 -2) (-40 -40 -2) (-40 -40 -5)"
+			"plane" "(-36 36 -2) (-36 -36 -2) (-36 -36 -5)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -40 40 -2"
-				"point" "1 -40 -40 -2"
-				"point" "2 -40 -40 -5"
-				"point" "3 -40 40 -5"
+				"point" "0 -36 36 -2"
+				"point" "1 -36 -36 -2"
+				"point" "2 -36 -36 -5"
+				"point" "3 -36 36 -5"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 0 1 7] 0.75"
-			"vaxis" "[0 -1 0 22] 1.25"
+			"uaxis" "[0 0 1 5] 0.75"
+			"vaxis" "[0 -1 0 32] 1.25"
 			"rotation" "90"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -2386,18 +2608,18 @@ entity
 		side
 		{
 			"id" "39"
-			"plane" "(40 40 -5) (40 -40 -5) (40 -40 -2)"
+			"plane" "(36 36 -5) (36 -36 -5) (36 -36 -2)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 40 40 -5"
-				"point" "1 40 -40 -5"
-				"point" "2 40 -40 -2"
-				"point" "3 40 40 -2"
+				"point" "0 36 36 -5"
+				"point" "1 36 -36 -5"
+				"point" "2 36 -36 -2"
+				"point" "3 36 36 -2"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 0 1 7] 0.75"
-			"vaxis" "[0 1 0 22] 1.25"
+			"uaxis" "[0 0 1 5] 0.75"
+			"vaxis" "[0 1 0 32] 1.25"
 			"rotation" "90"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -2405,18 +2627,18 @@ entity
 		side
 		{
 			"id" "38"
-			"plane" "(40 40 -2) (-40 40 -2) (-40 40 -5)"
+			"plane" "(36 36 -2) (-36 36 -2) (-36 36 -5)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 40 40 -2"
-				"point" "1 -40 40 -2"
-				"point" "2 -40 40 -5"
-				"point" "3 40 40 -5"
+				"point" "0 36 36 -2"
+				"point" "1 -36 36 -2"
+				"point" "2 -36 36 -5"
+				"point" "3 36 36 -5"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 0 1 7] 0.75"
-			"vaxis" "[-1 0 0 22] 1.25"
+			"uaxis" "[0 0 1 5] 0.75"
+			"vaxis" "[-1 0 0 32] 1.25"
 			"rotation" "90"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -2424,18 +2646,18 @@ entity
 		side
 		{
 			"id" "37"
-			"plane" "(40 -40 -5) (-40 -40 -5) (-40 -40 -2)"
+			"plane" "(36 -36 -5) (-36 -36 -5) (-36 -36 -2)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 40 -40 -5"
-				"point" "1 -40 -40 -5"
-				"point" "2 -40 -40 -2"
-				"point" "3 40 -40 -2"
+				"point" "0 36 -36 -5"
+				"point" "1 -36 -36 -5"
+				"point" "2 -36 -36 -2"
+				"point" "3 36 -36 -2"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
-			"uaxis" "[0 0 1 7] 0.75"
-			"vaxis" "[1 0 0 22] 1.25"
+			"uaxis" "[0 0 1 5] 0.75"
+			"vaxis" "[1 0 0 32] 1.25"
 			"rotation" "90"
 			"lightmapscale" "16"
 			"smoothing_groups" "0"
@@ -2459,15 +2681,13 @@ entity
 {
 	"id" "627"
 	"classname" "func_instance_parms"
-	"parm1" "$CurrentFixUpName string"
-	"parm2" "$filter_name string"
 	"origin" "24 -8 -24"
 	editor
 	{
 		"color" "220 30 220"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
-		"comments" "$CurrentFixUpName is need for autorespawn for the boxs"
+		"comments" "$CurrentFixUpName is need for autodrop for the boxes"
 		"logicalpos" "[0 500]"
 	}
 }
@@ -2559,7 +2779,7 @@ entity
 	"classname" "trigger_portal_cleanser"
 	"disablereceiveshadows" "0"
 	"drawinfastreflection" "0"
-	"filtername" "ml_filter_name_for_triggers"
+	"filtername" "ml_filter"
 	"origin" "0 0 48"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
@@ -2577,7 +2797,7 @@ entity
 		"id" "27"
 		side
 		{
-			"id" "1"
+			"id" "592"
 			"plane" "(-20 20 84) (20 20 84) (20 -20 84)"
 			point_data
 			{
@@ -2596,7 +2816,7 @@ entity
 		}
 		side
 		{
-			"id" "2"
+			"id" "591"
 			"plane" "(-20 -20 12) (20 -20 12) (20 20 12)"
 			point_data
 			{
@@ -2615,7 +2835,7 @@ entity
 		}
 		side
 		{
-			"id" "3"
+			"id" "590"
 			"plane" "(-20 20 84) (-20 -20 84) (-20 -20 12)"
 			point_data
 			{
@@ -2634,7 +2854,7 @@ entity
 		}
 		side
 		{
-			"id" "4"
+			"id" "589"
 			"plane" "(20 20 12) (20 -20 12) (20 -20 84)"
 			point_data
 			{
@@ -2653,7 +2873,7 @@ entity
 		}
 		side
 		{
-			"id" "5"
+			"id" "588"
 			"plane" "(20 20 84) (-20 20 84) (-20 20 12)"
 			point_data
 			{
@@ -2672,7 +2892,7 @@ entity
 		}
 		side
 		{
-			"id" "6"
+			"id" "587"
 			"plane" "(20 -20 12) (-20 -20 12) (-20 -20 84)"
 			point_data
 			{
