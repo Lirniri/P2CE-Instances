@@ -2,8 +2,8 @@ versioninfo
 {
 	"editorextension" "strata"
 	"editorversion" "400"
-	"editorbuild" "10597"
-	"mapversion" "150"
+	"editorbuild" "10762"
+	"mapversion" "162"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -23,33 +23,33 @@ viewsettings
 		v0
 		{
 			"3d" "1"
-			"position" "(-165.336 -145.612 -21.9564)"
-			"angle" "[-1.59989 37.9989 0]"
+			"position" "(-75.5825 -57.2672 -45.8094)"
+			"angle" "[-22.7999 27.999 0]"
 		}
 		v1
 		{
 			"3d" "0"
-			"position" "(-0.0001297 0 65088)"
-			"zoom" "4.6221"
+			"position" "(0 0 -392)"
+			"zoom" "3.20978"
 		}
 		v2
 		{
 			"3d" "0"
-			"position" "(65472 0 -408)"
-			"zoom" "1.03082"
+			"position" "(-64 0 -368)"
+			"zoom" "3.20978"
 		}
 		v3
 		{
 			"3d" "0"
-			"position" "(14.6448 -65728 -321.135)"
-			"zoom" "1.85751"
+			"position" "(-1.365 -192 -368.685)"
+			"zoom" "2.22902"
 		}
 	}
 }
 world
 {
 	"id" "1"
-	"mapversion" "150"
+	"mapversion" "162"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -67,10 +67,10 @@ entity
 	"targetname" "m_box_ptemp_$id"
 	connections
 	{
-		"OnEntitySpawned" "ml_boxes_in_dispenserAdd10-1"
-		"OnEntitySpawned" "ml_general_box_counterAdd10-1"
+		"OnEntitySpawned" "ml_boxes_in_ctrAdd10-1"
+		"OnEntitySpawned" "ml_general_box_ctrAdd10-1"
 	}
-	"origin" "0 0 0"
+	"origin" "0 0 -16"
 	editor
 	{
 		"color" "220 30 220"
@@ -88,7 +88,7 @@ entity
 	{
 		"OnEntitySpawned" "ml_boxes_in_dispenserAdd10-1"
 	}
-	"origin" "0 0 16"
+	"origin" "0 0 0"
 	editor
 	{
 		"color" "220 30 220"
