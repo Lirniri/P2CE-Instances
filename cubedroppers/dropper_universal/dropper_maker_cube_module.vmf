@@ -1,0 +1,167 @@
+versioninfo
+{
+	"editorextension" "strata"
+	"editorversion" "400"
+	"editorbuild" "10762"
+	"mapversion" "170"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "1"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "1"
+	"nGridSpacing" "8"
+	"bShow3DGrid" "0"
+	"nInstanceVisibility" "2"
+	views
+	{
+		v0
+		{
+			"3d" "1"
+			"position" "(-43.7628 39.7125 -27.689)"
+			"angle" "[-21.6004 -46.0009 0]"
+		}
+		v1
+		{
+			"3d" "0"
+			"position" "(0 0 -552)"
+			"zoom" "7.987"
+		}
+		v2
+		{
+			"3d" "0"
+			"position" "(-384 0 -200)"
+			"zoom" "7.987"
+		}
+		v3
+		{
+			"3d" "0"
+			"position" "(0 -384 -200)"
+			"zoom" "1.28994"
+		}
+	}
+}
+world
+{
+	"id" "1"
+	"mapversion" "170"
+	"classname" "worldspawn"
+	"detailmaterial" "detail/detailsprites"
+	"detailvbsp" "detail.vbsp"
+	"maxblobcount" "250"
+	"maxprojectedtextures" "8"
+	"maxpropscreenwidth" "-1"
+	"skyname" "sky_black_nofog"
+}
+entity
+{
+	"id" "1803"
+	"classname" "logic_relay"
+	"angles" "0 0 0"
+	"spawnflags" "0"
+	"startdisabled" "0"
+	"targetname" "m_box_onfizzled_$id"
+	connections
+	{
+		"OnTrigger" "maker_proxy_$idProxyRelay0-1"
+	}
+	"origin" "0 0 -48"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "1768"
+	"classname" "logic_relay"
+	"angles" "0 0 0"
+	"spawnflags" "0"
+	"startdisabled" "0"
+	"targetname" "m_box_spawn_$id"
+	connections
+	{
+		"OnTrigger" "m_box_ptemp_$idForceSpawn0-1"
+	}
+	"origin" "0 0 -32"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "1800"
+	"classname" "func_instance_io_proxy"
+	"targetname" "maker_proxy_$id"
+	connections
+	{
+		"OnProxyRelay" "m_box_spawn_$idTrigger0-1"
+	}
+	"origin" "0 0 16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1500]"
+	}
+}
+entity
+{
+	"id" "1659"
+	"classname" "point_template"
+	"angles" "0 0 0"
+	"spawnflags" "2"
+	"targetname" "m_box_ptemp_$id"
+	connections
+	{
+		"OnEntitySpawned" "ml_general_box_ctrAdd10-1"
+		"OnEntitySpawned" "ml_boxes_in_ctrAdd10-1"
+	}
+	"origin" "0 0 -16"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1500]"
+	}
+}
+entity
+{
+	"id" "1767"
+	"classname" "func_instance_parms"
+	"parm1" "$id integer 1"
+	connections
+	{
+		"OnEntitySpawned" "ml_boxes_in_dispenserAdd10-1"
+	}
+	"origin" "0 0 0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1500]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}
