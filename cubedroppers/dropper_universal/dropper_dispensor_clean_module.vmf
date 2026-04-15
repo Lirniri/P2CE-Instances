@@ -3,7 +3,7 @@ versioninfo
 	"editorextension" "strata"
 	"editorversion" "400"
 	"editorbuild" "10762"
-	"mapversion" "811"
+	"mapversion" "923"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -12,7 +12,7 @@ visgroups
 }
 viewsettings
 {
-	"bSnapToGrid" "1"
+	"bSnapToGrid" "0"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "1"
 	"nGridSpacing" "4"
@@ -23,33 +23,33 @@ viewsettings
 		v0
 		{
 			"3d" "1"
-			"position" "(28.2115 -23.0549 40.4388)"
-			"angle" "[9.99999 121.199 0]"
+			"position" "(-165.778 38.4757 -36.1746)"
+			"angle" "[-12.4 -10.801 0]"
 		}
 		v1
 		{
 			"3d" "0"
-			"position" "(-24 -8 65536)"
+			"position" "(0 0 65536)"
 			"zoom" "1.28995"
 		}
 		v2
 		{
 			"3d" "0"
-			"position" "(65536 -8 24)"
-			"zoom" "7.987"
+			"position" "(65536 -32.8266 -9.28938)"
+			"zoom" "34.3428"
 		}
 		v3
 		{
 			"3d" "0"
-			"position" "(-24 -65536 24)"
-			"zoom" "1.28994"
+			"position" "(0 0 65536)"
+			"zoom" "2.22903"
 		}
 	}
 }
 world
 {
 	"id" "1"
-	"mapversion" "811"
+	"mapversion" "923"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -57,6 +57,16 @@ world
 	"maxprojectedtextures" "8"
 	"maxpropscreenwidth" "-1"
 	"skyname" "sky_black_nofog"
+	group
+	{
+		"id" "35153"
+		editor
+		{
+			"color" "167 148 0"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
 	group
 	{
 		"id" "30169"
@@ -91,6 +101,199 @@ world
 }
 entity
 {
+	"id" "37277"
+	"classname" "func_instance_io_proxy"
+	"targetname" "ml_proxy"
+	connections
+	{
+		"OnProxyRelay" "ml_drop_onlyTrigger0-1"
+		"OnProxyRelay" "ml_dropTrigger0-1"
+		"OnProxyRelay" "ml_dissolve_box1Trigger0-1"
+		"OnProxyRelay" "ml_dissolve_box2Trigger0-1"
+		"OnProxyRelay" "ml_spawn_tmrEnable0-1"
+		"OnProxyRelay" "ml_cleanser_trigEnable0-1"
+		"OnProxyRelay" "ml_oncleanEnable0-1"
+	}
+	"origin" "24 -8 -24"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "37250"
+	"classname" "logic_relay"
+	"angles" "0 0 0"
+	"spawnflags" "0"
+	"startdisabled" "1"
+	"targetname" "ml_box1_out_rl"
+	connections
+	{
+		"OnTrigger" "ml_box1_out_fTestActivator0-1"
+		"OnTrigger" "ml_box1_outEnable0-1"
+	}
+	"origin" "-24 -24 -24"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "37263"
+	"classname" "logic_relay"
+	"angles" "0 0 0"
+	"startdisabled" "1"
+	"targetname" "ml_box2_out_rl"
+	connections
+	{
+		"OnTrigger" "ml_box2_out_fTestActivator0-1"
+		"OnTrigger" "ml_box1_outEnable0-1"
+	}
+	"origin" "-24 -8 -24"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "36952"
+	"classname" "logic_relay"
+	"angles" "0 0 0"
+	"spawnflags" "0"
+	"startdisabled" "0"
+	"targetname" "dl_set_skin_as_open"
+	connections
+	{
+		"OnTrigger" "dl_dispensor_mdlSkin10-1"
+	}
+	"origin" "24 -40 -24"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "37089"
+	"classname" "logic_relay"
+	"angles" "0 0 0"
+	"spawnflags" "0"
+	"startdisabled" "0"
+	"targetname" "dl_set_skin_as_close"
+	connections
+	{
+		"OnTrigger" "dl_dispensor_mdlSkin00-1"
+	}
+	"origin" "8 -40 -24"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "34993"
+	"classname" "logic_relay"
+	"angles" "0 0 0"
+	"startdisabled" "0"
+	"targetname" "ml_dissolve_box1"
+	connections
+	{
+		"OnTrigger" "!m_box_1FireUser10-1"
+	}
+	"origin" "-40 24 32"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "35013"
+	"classname" "logic_relay"
+	"angles" "0 0 0"
+	"startdisabled" "0"
+	"targetname" "ml_dissolve_box2"
+	connections
+	{
+		"OnTrigger" "!m_box_2FireUser10-1"
+	}
+	"origin" "-40 24 16"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "35242"
+	"classname" "logic_relay"
+	"angles" "0 0 0"
+	"spawnflags" "0"
+	"startdisabled" "0"
+	"targetname" "ml_box1_out"
+	connections
+	{
+		"OnTrigger" "!selfDisable0-1"
+		"OnTrigger" "ml_proxyProxyRelay0-1"
+	}
+	"origin" "-8 -24 -40"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
+	"id" "35268"
+	"classname" "logic_relay"
+	"angles" "0 0 0"
+	"spawnflags" "0"
+	"startdisabled" "0"
+	"targetname" "ml_box2_out"
+	connections
+	{
+		"OnTrigger" "!selfDisable0-1"
+		"OnTrigger" "ml_proxyProxyRelay0-1"
+	}
+	"origin" "-8 -8 -40"
+	editor
+	{
+		"color" "0 100 250"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 1000]"
+	}
+}
+entity
+{
 	"id" "34163"
 	"classname" "logic_relay"
 	"angles" "0 0 0"
@@ -101,8 +304,9 @@ entity
 	{
 		"OnTrigger" "ml_box_managerSetStateATrue0-1"
 		"OnTrigger" "ml_dissolveTest0-1"
+		"OnTrigger" "ml_proxyProxyRelay0-1"
 	}
-	"origin" "40 -24 -24"
+	"origin" "40 -8 -24"
 	editor
 	{
 		"color" "0 100 250"
@@ -122,8 +326,9 @@ entity
 	connections
 	{
 		"OnTrigger" "ml_box_managerSetStateATrue0-1"
+		"OnTrigger" "ml_proxyProxyRelay0-1"
 	}
-	"origin" "40 -8 -24"
+	"origin" "40 8 -24"
 	editor
 	{
 		"color" "0 100 250"
@@ -148,6 +353,8 @@ entity
 		"OnHitMax" "dl_dispensor_land_clipEnable0-1"
 		"OnHitMin" "ml_spawn_tmrEnable0-1"
 		"OnHitMax" "dl_dispensor_mdlSetAnimationitem_dropper_close0-1"
+		"OnHitMin" "ml_box1_out_rlDisable0-1"
+		"OnHitMin" "ml_box2_out_rlDisable0-1"
 	}
 	"origin" "0 0 -24"
 	editor
@@ -197,14 +404,13 @@ entity
 	"angles" "0 0 0"
 	"spawnflags" "0"
 	"startdisabled" "0"
-	"targetname" "ml_when_clean_onuser"
+	"targetname" "ml_onclean"
 	connections
 	{
 		"OnTrigger" "!selfDisable0-1"
-		"OnTrigger" "ml_spawnTest0-1"
-		"OnTrigger" "ml_when_clean_onuserEnable0.05-1"
+		"OnTrigger" "ml_proxyProxyRelay0-1"
 	}
-	"origin" "-24 -8 24"
+	"origin" "16 0 24"
 	editor
 	{
 		"color" "0 100 250"
@@ -259,7 +465,7 @@ entity
 	"kv3_mode" "target2known"
 	"kv3_src" "targetname"
 	"kv4_dest" "!m_box_2"
-	"kv4_known" "ml_dissolve"
+	"kv4_known" "ml_dissolve_box2"
 	"kv4_mode" "replacetarget"
 	"kv5_dest" "template01"
 	"kv5_known" "m_box_ptemp_2"
@@ -268,12 +474,15 @@ entity
 	"kv6_dest" "allowfunnel"
 	"kv6_mode" "const2target"
 	"kv6_src" "0"
-	"kv7_dest" "origin"
-	"kv7_known" "m_box_ptemp_2"
-	"kv7_mode" "known2target"
-	"kv7_src" "origin"
+	"kv7_dest" "startasbox"
+	"kv7_mode" "const2target"
+	"kv7_src" "1"
+	"kv8_dest" "origin"
+	"kv8_known" "m_box_ptemp_2"
+	"kv8_mode" "known2target"
+	"kv8_src" "origin"
 	"makeunique" "0"
-	"radius" "$search_radius"
+	"radius" "128"
 	"rotatetarget" "0"
 	"searchfov" "180"
 	"targetcls" "prop_weighted_cube prop_monster_box"
@@ -281,60 +490,17 @@ entity
 	"teleporttarget" "0"
 	connections
 	{
-		"OnUser3" "RemoveOutputOnUser20-1"
-		"OnUser2" "!selfRemoveOutputOnFizzled0-1"
-		"OnFizzled" "m_box_onfizzled_2Trigger0-1"
+		"OnFizzled" "ml_general_box_ctrSubtract10-1"
 	}
 	"origin" "0 0 72"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "167 148 0"
+		"groupid" "35153"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
+		"comments" "This automatically sets up the cube. 1.2. and 3 sets up the filter. 4 makes the !m_box_2 output in the m_disslove_box2 point at the cube to dissolve it. 5 sets the template name in the template. 6 ensures the cube starts with portal funnelling off. 7 forces franken to box mode. 8 then teleports the cube to the template position"
 		"logicalpos" "[0 -14768]"
-	}
-}
-entity
-{
-	"id" "29411"
-	"classname" "logic_relay"
-	"angles" "0 0 0"
-	"spawnflags" "0"
-	"startdisabled" "1"
-	"targetname" "ml_box1_out_rl"
-	connections
-	{
-		"OnTrigger" "ml_box1_out_fTestActivator0-1"
-	}
-	"origin" "-24 -24 -24"
-	editor
-	{
-		"color" "193 134 0"
-		"groupid" "30169"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
-	}
-}
-entity
-{
-	"id" "29424"
-	"classname" "logic_relay"
-	"angles" "0 0 0"
-	"startdisabled" "1"
-	"targetname" "ml_box2_out_rl"
-	connections
-	{
-		"OnTrigger" "ml_box2_out_fTestActivator0-1"
-	}
-	"origin" "-24 -8 -24"
-	editor
-	{
-		"color" "193 134 0"
-		"groupid" "30169"
-		"visgroupshown" "1"
-		"visgroupautoshown" "1"
-		"logicalpos" "[0 500]"
 	}
 }
 entity
@@ -355,7 +521,7 @@ entity
 	"kv3_mode" "target2known"
 	"kv3_src" "targetname"
 	"kv4_dest" "!m_box_1"
-	"kv4_known" "ml_dissolve"
+	"kv4_known" "ml_dissolve_box1"
 	"kv4_mode" "replacetarget"
 	"kv5_dest" "template01"
 	"kv5_known" "m_box_ptemp_1"
@@ -364,12 +530,15 @@ entity
 	"kv6_dest" "allowfunnel"
 	"kv6_mode" "const2target"
 	"kv6_src" "0"
-	"kv7_dest" "origin"
-	"kv7_known" "m_box_ptemp_1"
-	"kv7_mode" "known2target"
-	"kv7_src" "origin"
+	"kv7_dest" "startasbox"
+	"kv7_mode" "const2target"
+	"kv7_src" "1"
+	"kv8_dest" "origin"
+	"kv8_known" "m_box_ptemp_1"
+	"kv8_mode" "known2target"
+	"kv8_src" "origin"
 	"makeunique" "0"
-	"radius" "$search_radius"
+	"radius" "128"
 	"rotatetarget" "0"
 	"searchfov" "180"
 	"targetcls" "prop_weighted_cube prop_monster_box"
@@ -377,15 +546,16 @@ entity
 	"teleporttarget" "0"
 	connections
 	{
-		"OnFizzled" "m_box_onfizzled_1Trigger0-1"
-		"OnUser2" "!selfRemoveOutputOnFizzled0-1"
+		"OnFizzled" "ml_general_box_ctrSubtract10-1"
 	}
-	"origin" "0 0 20"
+	"origin" "0 0 40"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "167 148 0"
+		"groupid" "35153"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
+		"comments" "This automatically sets up the cube. 1.2. and 3 sets up the filter. 4 makes the !m_box_1 output in the m_disslove_box1 point at the cube to dissolve it. 5 sets the template name in the template. 6 ensures the cube starts with portal funnelling off. 7 forces franken to box mode. 8 then teleports the cube to the template position"
 		"logicalpos" "[0 -14768]"
 	}
 }
@@ -1544,10 +1714,8 @@ entity
 	"targetname" "ml_spawn"
 	connections
 	{
-		"OnFalse" "m_box_ptemp_1ForceSpawn0-1"
-		"OnTrue" "m_box_ptemp_2ForceSpawn0-1"
-		"OnFalse" "m_box_ptemp_2ForceSpawn0-1"
-		"OnTrue" "m_box_ptemp_1ForceSpawn0-1"
+		"OnFalse" "ml_proxyProxyRelay0-1"
+		"OnTrue" "ml_proxyProxyRelay0-1"
 	}
 	"origin" "-24 8 24"
 	editor
@@ -1568,8 +1736,8 @@ entity
 	"targetname" "ml_dissolve"
 	connections
 	{
-		"OnFalse" "!m_box_1FireUser10-1"
-		"OnTrue" "!m_box_2FireUser10-1"
+		"OnTrue" "ml_proxyProxyRelay0-1"
+		"OnFalse" "ml_proxyProxyRelay0-1"
 	}
 	"origin" "-24 24 24"
 	editor
@@ -1595,11 +1763,16 @@ entity
 		"OnChangeToAllTrue" "dl_dispensor_land_clipDisable0-1"
 		"OnChangeToAllTrue" "ml_box_out_trigEnable0-1"
 		"OnChangeToAllTrue" "dl_dispensor_mdlSkin10-1"
+		"OnChangeToAllFalse" "ml_drop1_trigEnable0-1"
+		"OnChangeToAllTrue" "ml_box_out_trigTouchTest0-1"
+		"OnChangeToAllTrue" "ml_box2_out_rlEnable0-1"
+		"OnChangeToAllTrue" "ml_box1_out_rlEnable0-1"
 	}
-	"origin" "0 0 48"
+	"origin" "0 0 56"
 	editor
 	{
-		"color" "0 100 250"
+		"color" "167 148 0"
+		"groupid" "35153"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 0]"
@@ -1619,7 +1792,6 @@ entity
 	connections
 	{
 		"OnEndTouch" "ml_box_out_mfTestActivator0.01-1"
-		"OnTouching" "ml_boxes_out_ctrSetValue00-1"
 	}
 	solid
 	{
@@ -1758,13 +1930,12 @@ entity
 	"id" "6189"
 	"classname" "filter_activator_name"
 	"angles" "0 0 0"
-	"filtername" "!m_box_2"
 	"negated" "0"
 	"PassCallerWhenTested" "0"
 	"targetname" "ml_box2_out_f"
 	connections
 	{
-		"OnPass" "!activatorRemoveOutputOnUser20-1"
+		"OnPass" "!activatorFireUser20.03-1"
 		"OnPass" "ml_box2_out_rlDisable0-1"
 		"OnPass" "!activatorEnablePortalFunnel0-1"
 		"OnPass" "!activatorAddOutputOnUser1 !self:Dissolve,,0,10-1"
@@ -1817,8 +1988,7 @@ entity
 	"targetname" "ml_box2_in_f"
 	connections
 	{
-		"OnPass" "ml_box2_out_rlEnable0-1"
-		"OnPass" "ml_box2_in_onuserTrigger0-1"
+		"OnPass" "ml_dissolveSetValue10-1"
 	}
 	"origin" "-24 -8 64"
 	editor
@@ -1864,8 +2034,7 @@ entity
 	"targetname" "ml_box1_in_f"
 	connections
 	{
-		"OnPass" "ml_box1_out_rlEnable0-1"
-		"OnPass" "ml_box1_in_onuserTrigger0-1"
+		"OnPass" "ml_dissolveSetValue00-1"
 	}
 	"origin" "-24 -24 64"
 	editor
@@ -1890,6 +2059,7 @@ entity
 	connections
 	{
 		"OnStartTouch" "ml_box_in_mfTestActivator0-1"
+		"OnStartTouch" "ml_oncleanEnable0-1"
 	}
 	solid
 	{
@@ -2033,12 +2203,12 @@ entity
 	"targetname" "ml_box1_out_f"
 	connections
 	{
-		"OnPass" "!activatorRemoveOutputOnUser20-1"
 		"OnPass" "ml_box1_out_rlDisable0-1"
+		"OnPass" "ml_boxes_in_ctrSubtract10-1"
 		"OnPass" "!activatorEnablePortalFunnel0-1"
 		"OnPass" "!activatorAddOutputOnUser1 !self:Dissolve,,0,10-1"
 		"OnPass" "ml_boxes_out_ctrAdd10-1"
-		"OnPass" "ml_boxes_in_ctrSubtract10-1"
+		"OnPass" "!activatorFireUser20.03-1"
 	}
 	"origin" "-24 -24 -40"
 	editor
@@ -2357,7 +2527,7 @@ entity
 	"disableshadowdepth" "0"
 	"effects" "0"
 	"invert_exclusion" "0"
-	"origin" "0 0 -3.5"
+	"origin" "0 0 -5.5"
 	"renderamt" "255"
 	"rendercolor" "255 255 255"
 	"renderfx" "0"
@@ -2396,14 +2566,14 @@ entity
 		side
 		{
 			"id" "41"
-			"plane" "(-36 -36 -5) (36 -36 -5) (36 36 -5)"
+			"plane" "(-36 -36 -9) (36 -36 -9) (36 36 -9)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 -36 -36 -5"
-				"point" "1 36 -36 -5"
-				"point" "2 36 36 -5"
-				"point" "3 -36 36 -5"
+				"point" "0 -36 -36 -9"
+				"point" "1 36 -36 -9"
+				"point" "2 36 36 -9"
+				"point" "3 -36 36 -9"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 1 0 32] 1.125"
@@ -2415,14 +2585,14 @@ entity
 		side
 		{
 			"id" "40"
-			"plane" "(-36 36 -2) (-36 -36 -2) (-36 -36 -5)"
+			"plane" "(-36 36 -2) (-36 -36 -2) (-36 -36 -9)"
 			point_data
 			{
 				"numpts" "4"
 				"point" "0 -36 36 -2"
 				"point" "1 -36 -36 -2"
-				"point" "2 -36 -36 -5"
-				"point" "3 -36 36 -5"
+				"point" "2 -36 -36 -9"
+				"point" "3 -36 36 -9"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 0 1 5] 0.75"
@@ -2434,12 +2604,12 @@ entity
 		side
 		{
 			"id" "39"
-			"plane" "(36 36 -5) (36 -36 -5) (36 -36 -2)"
+			"plane" "(36 36 -9) (36 -36 -9) (36 -36 -2)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 36 36 -5"
-				"point" "1 36 -36 -5"
+				"point" "0 36 36 -9"
+				"point" "1 36 -36 -9"
 				"point" "2 36 -36 -2"
 				"point" "3 36 36 -2"
 			}
@@ -2453,14 +2623,14 @@ entity
 		side
 		{
 			"id" "38"
-			"plane" "(36 36 -2) (-36 36 -2) (-36 36 -5)"
+			"plane" "(36 36 -2) (-36 36 -2) (-36 36 -9)"
 			point_data
 			{
 				"numpts" "4"
 				"point" "0 36 36 -2"
 				"point" "1 -36 36 -2"
-				"point" "2 -36 36 -5"
-				"point" "3 36 36 -5"
+				"point" "2 -36 36 -9"
+				"point" "3 36 36 -9"
 			}
 			"material" "TOOLS/TOOLSINVISIBLE"
 			"uaxis" "[0 0 1 5] 0.75"
@@ -2472,12 +2642,12 @@ entity
 		side
 		{
 			"id" "37"
-			"plane" "(36 -36 -5) (-36 -36 -5) (-36 -36 -2)"
+			"plane" "(36 -36 -9) (-36 -36 -9) (-36 -36 -2)"
 			point_data
 			{
 				"numpts" "4"
-				"point" "0 36 -36 -5"
-				"point" "1 -36 -36 -5"
+				"point" "0 36 -36 -9"
+				"point" "1 -36 -36 -9"
 				"point" "2 -36 -36 -2"
 				"point" "3 36 -36 -2"
 			}
@@ -2508,8 +2678,7 @@ entity
 	"id" "627"
 	"classname" "func_instance_parms"
 	"parm1" "$interval_spawn float 0.01"
-	"parm8" "$search_radius integer 192"
-	"origin" "24 -8 -24"
+	"origin" "24 8 -24"
 	editor
 	{
 		"color" "220 30 220"
@@ -2522,19 +2691,21 @@ entity
 entity
 {
 	"id" "139"
-	"classname" "func_instance_io_proxy"
-	"targetname" "dispensor_proxy"
+	"classname" "logic_branch"
+	"angles" "0 0 0"
+	"targetname" "dl_proxy"
 	connections
 	{
-		"OnProxyRelay" "ml_dropTrigger0-1"
-		"OnProxyRelay" "ml_drop_onlyTrigger0-1"
+		"OnProxyRelay" "dl_set_skin_as_openTrigger0-1"
+		"OnProxyRelay" "dl_set_skin_as_closeTrigger0-1"
 	}
 	"origin" "24 -24 -24"
 	editor
 	{
-		"color" "220 30 220"
+		"color" "0 100 250"
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
+		"comments" "Use a m_box_ptemp_1/2 for to spawn a cube."
 		"logicalpos" "[0 500]"
 	}
 }
@@ -2617,14 +2788,11 @@ entity
 	"visible" "0"
 	connections
 	{
-		"OnTrigger" "!activatorFireUser20-1"
+		"OnEndTouchAll" "ml_cleanser_trigDisable0.05-1"
 		"OnDissolve" "ml_general_box_ctrSubtract10-1"
 		"OnTrigger" "ml_box_out_trigDisable0-1"
-		"OnEndTouchAll" "!selfDisable0-1"
-		"OnTrigger" "ml_box2_out_rlDisable0-1"
-		"OnEndTouchAll" "ml_when_clean_onuserTrigger0-1"
-		"OnTrigger" "ml_box1_out_rlDisable0-1"
-		"OnEndTouchAll" "ml_drop1_trigEnable0-1"
+		"OnEndTouchAll" "ml_oncleanTrigger0.01-1"
+		"OnStartTouch" "!activatorCancelPending0-1"
 	}
 	solid
 	{
